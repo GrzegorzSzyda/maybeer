@@ -20,7 +20,7 @@
       "eslint --fix",
       "git add",
       "jest --bail --findRelatedTests",
-      "flow check"
+      "flow focus-check"
     ]
   },
   "dependencies": {
