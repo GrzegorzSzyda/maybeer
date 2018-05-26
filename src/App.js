@@ -1,6 +1,10 @@
 // @flow
-import React from "react";
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Home } from './screens/Home';
 
-const i: string = "adsasdasd";
-
-export const App = () => <div>Something went drunk</div>;
+export const App = () => (
+    <Router>
+        <Route path="/" component={Home} />
+    </Router>
+);
