@@ -6,7 +6,7 @@ import { Icon } from '../Icon';
 
 type NavigationProps = {
     isLogged: boolean | null,
-    onShowLogin: Function
+    onShowLogin(): void
 };
 
 export const NavigationBar = ({ isLogged, onShowLogin }: NavigationProps) => (
@@ -17,9 +17,9 @@ export const NavigationBar = ({ isLogged, onShowLogin }: NavigationProps) => (
                 <Icon name="plus" />
             </Link>
         ) : (
-            <span>
+            <button onClick={() => onShowLogin()}>
                 <Icon name="key" />
-            </span>
+            </button>
         )}
         <Link to="/user">O mnie</Link>
     </NavigationWrapper>

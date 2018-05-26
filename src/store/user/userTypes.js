@@ -32,5 +32,6 @@ export type UserData = null | {
 
 export type UserState = {
     isLogged: boolean | null,
+    showLogin: boolean,
     data: UserData
 };

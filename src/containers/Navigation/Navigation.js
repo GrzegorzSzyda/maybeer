@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { connect, actions, type State } from '../../store';
+import { connect, actions, type State, userFirebaseActions } from '../../store';
 import { NavigationBar } from '../../components/NavigationBar';
 import type { UserState } from '../../store/user/userTypes';
 
@@ -11,10 +11,17 @@ type NavigationProps = {
 class NavigationContainer extends React.PureComponent<NavigationProps, {}> {
     render() {
         return (
-            <NavigationBar
-                isLogged={this.props.user.isLogged}
-                onShowLogin={actions.showLogin}
-            />
+            <div>
+                {this.props.user.showLogin && (
+                    <button onClick={userFirebaseActions.login}>
+                        Zaloguj przez Facebook
+                    </button>
+                )}
+                <NavigationBar
+                    isLogged={this.props.user.isLogged}
+                    onShowLogin={actions.userShowLogin}
+                />
+            </div>
         );
     }
 }

@@ -14,7 +14,7 @@ const config = {
 
 export const { Provider, connect, actions } = createStore(config);
 
-export const userActions = { login, logout };
+export const userFirebaseActions = { login, logout };
 
 watchUserChanges((user: UserData) => {
     console.log(user); // eslint-disable-line
