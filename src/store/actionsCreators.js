@@ -2,7 +2,7 @@
 import type { State, UserState } from './types';
 
 export const actionsCreators = {
-    updateUser: (user: UserState) => ({ user }),
+    updateUser: (state: State, user: UserState) => ({ user }),
     addWallItem: (state: State, title: string) => ({
         wall: [
             ...state.wall,
