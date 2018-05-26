@@ -1,1 +1,2 @@
-export { Wall } from './Wall';
+// @flow
+export * from './Wall';
