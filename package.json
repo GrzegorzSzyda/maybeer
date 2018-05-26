@@ -11,7 +11,8 @@
     "lint:fix": "eslint --fix ./src",
     "precommit": "lint-staged",
     "flow": "flow",
-    "flow:watch": "flow-watch"
+    "flow:watch": "flow-watch",
+    "create": "snippet create"
   },
   "lint-staged": {
     "*.js": [
@@ -27,9 +28,11 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router": "^4.2.0",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "styled-components": "^3.3.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.3",
     "eslint": "^4.19.1",
     "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-flowtype": "^2.46.3",
@@ -39,6 +42,7 @@
     "flow-bin": "^0.72.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.1.0",
-    "prettier": "^1.12.1"
+    "prettier": "^1.12.1",
+    "project-snippets": "^0.4.0"
   }
 }
