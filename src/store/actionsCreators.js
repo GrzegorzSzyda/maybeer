@@ -1,8 +1,9 @@
 // @flow
-import type { State, UserState } from './types';
+import type { State } from './types';
+import { userActions } from './user/userActions';
 
 export const actionsCreators = {
-    updateUser: (state: State, user: UserState) => ({ user }),
+    ...userActions,
     addWallItem: (state: State, title: string) => ({
         wall: [
             ...state.wall,

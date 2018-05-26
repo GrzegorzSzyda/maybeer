@@ -4,12 +4,23 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Icon } from '../Icon';
 
-export const Navigation = () => (
+type NavigationProps = {
+    isLogged: boolean | null,
+    onShowLogin: Function
+};
+
+export const NavigationBar = ({ isLogged, onShowLogin }: NavigationProps) => (
     <NavigationWrapper>
         <Link to="/">Ściana</Link>
-        <Link to="/add">
-            <Icon name="plus" />
-        </Link>
+        {isLogged ? (
+            <Link to="/add">
+                <Icon name="plus" />
+            </Link>
+        ) : (
+            <span>
+                <Icon name="key" />
+            </span>
+        )}
         <Link to="/user">O mnie</Link>
     </NavigationWrapper>
 );
