@@ -2,11 +2,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Icon } from '../Icon';
 
 export const Navigation = () => (
     <NavigationWrapper>
         <Link to="/">Ściana</Link>
-        <Link to="/add">Dodaj</Link>
+        <Link to="/add">
+            <Icon name="plus" />
+        </Link>
         <Link to="/user">O mnie</Link>
     </NavigationWrapper>
 );
