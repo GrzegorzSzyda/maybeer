@@ -6,6 +6,7 @@ export const userActions = {
     userUpdateData: (state: State, data: UserData): $Shape<State> => ({
         user: {
             ...state.user,
+            isLogged: !!data,
             data
         }
     }),

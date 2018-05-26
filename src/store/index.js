@@ -7,16 +7,14 @@ import type { UserData } from './user/userTypes';
 
 export * from './types';
 
-const config = {
+export const { Provider, connect, actions } = createStore({
     initialState,
     actionsCreators
-};
-
-export const { Provider, connect, actions } = createStore(config);
+});
 
 export const userFirebaseActions = { login, logout };
 
 watchUserChanges((user: UserData) => {
-    console.log(user); // eslint-disable-line
+    console.log('watchUserChanges', user); // eslint-disable-line
     actions.userUpdateData(user);
 });
