@@ -14,7 +14,7 @@ export const LoginForm = ({ show, onLogin }: LoginFormProps) => {
     return (
         <FormWrapper>
             <Form>
-                <FacebookLoginButton onClick={onLogin}>
+                <FacebookLoginButton type="button" onClick={onLogin}>
                     Zaloguj się Facebookiem
                 </FacebookLoginButton>
             </Form>
