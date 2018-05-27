@@ -26,7 +26,7 @@ const createArrayOfStarsByRating = (rating, maxStars = 5) => {
 export const StarRatings = ({ rating, maxStars = 5, onChange }: RatingsProps) => (
     <div>
         {createArrayOfStarsByRating(0.4, maxStars).map(
-            (star, i) => star === STAR && <Icon name="star" />
+            (star, i) => star === STAR && <Icon key={i} name="star" />
         )}
     </div>
 );

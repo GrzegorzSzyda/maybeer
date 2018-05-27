@@ -4,7 +4,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import * as icons from '@fortawesome/fontawesome-free-solid';
 
 type IconProps = {
-    name: 'plus' | 'list' | 'userCircle' | 'key' | 'spinner' | string
+    name: 'plus' | 'list' | 'userCircle' | 'key' | 'spinner' | 'star' | string
 };
 
 const createIconName = (name: string): string =>
