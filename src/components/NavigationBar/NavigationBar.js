@@ -12,11 +12,13 @@ type NavigationProps = {
 export const NavigationBar = ({ isLogged, onShowLogin }: NavigationProps) => (
     <NavigationWrapper>
         <Link to="/">Ściana</Link>
-        {isLogged ? (
+        {isLogged === null && <Icon name="spinner" />}
+        {isLogged === true && (
             <Link to="/add">
                 <Icon name="plus" />
             </Link>
-        ) : (
+        )}
+        {isLogged === false && (
             <button onClick={() => onShowLogin()}>
                 <Icon name="key" />
             </button>
