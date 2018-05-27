@@ -1,18 +1,18 @@
 // @flow
+import type { WallItem } from './wallTypes';
 import type { State } from '../types';
 
 export const wallActions = {
-    addWallItem: (state: State, title: string, description: string): $Shape<State> => ({
+    wallClearEntries: (state: State): $Shape<State> => ({
         wall: {
-            ...state.wall,
-            entries: [
-                {
-                    id: Math.random().toString(),
-                    title,
-                    description
-                },
-                ...state.wall.entries
-            ]
+            loading: true,
+            entries: []
+        }
+    }),
+    wallSetEntries: (state: State, entries: WallItem[]): $Shape<State> => ({
+        wall: {
+            loading: false,
+            entries
         }
     })
 };

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { connect, actions, type State, userFirebaseActions } from '../../store';
+import { connect, actions, type State, asyncActions } from '../../store';
 import { NavigationBar } from '../../components/NavigationBar';
 import type { UserState } from '../../store/user/userTypes';
 
@@ -13,9 +13,7 @@ class NavigationContainer extends React.PureComponent<NavigationProps, {}> {
         return (
             <div>
                 {this.props.user.showLogin && (
-                    <button onClick={userFirebaseActions.login}>
-                        Zaloguj przez Facebook
-                    </button>
+                    <button onClick={asyncActions.login}>Zaloguj przez Facebook</button>
                 )}
                 <NavigationBar
                     isLogged={this.props.user.isLogged}
