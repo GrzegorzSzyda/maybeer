@@ -1,23 +1,23 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { Icon } from '../Icon';
-import { LINK_STYLES, ICON_STYLES } from './styles';
+import { Icon } from '../../Icon';
+import { BUTTON_DEFAULT_STYLES, ICON_STYLES } from './styles';
 
 type LoginProps = {
     onShowLogin(): void
 };
 
 export const Login = ({ onShowLogin }: LoginProps) => (
-    <OpenLoginButton onClick={() => onShowLogin()}>
+    <Button onClick={() => onShowLogin()}>
         <IconWrapper>
             <Icon name="key" />
         </IconWrapper>
-    </OpenLoginButton>
+    </Button>
 );
 
-const OpenLoginButton = styled.button`
-    ${LINK_STYLES};
+const Button = styled.button`
+    ${BUTTON_DEFAULT_STYLES};
 `;
 
 const IconWrapper = styled.span`

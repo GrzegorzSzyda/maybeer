@@ -2,19 +2,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Icon } from '../Icon';
-import { LINK_STYLES, ICON_STYLES } from './styles';
+import { Icon } from '../../Icon';
+import { BUTTON_DEFAULT_STYLES, ICON_STYLES } from './styles';
 
 export const Add = () => (
-    <AddLink to="/add">
+    <Button to="/add">
         <IconWrapper>
             <Icon name="plus" />
         </IconWrapper>
-    </AddLink>
+    </Button>
 );
 
-const AddLink = styled(Link)`
-    ${LINK_STYLES};
+const Button = styled(Link)`
+    ${BUTTON_DEFAULT_STYLES};
 `;
 const IconWrapper = styled.span`
     ${ICON_STYLES};
