@@ -1,16 +1,8 @@
 // @flow
-import type { State } from './types';
 import { userActions } from './user/userActions';
+import { wallActions } from './wall/wallActions';
 
 export const actionsCreators = {
     ...userActions,
-    addWallItem: (state: State, title: string) => ({
-        wall: [
-            ...state.wall,
-            {
-                id: Math.random(),
-                title: title
-            }
-        ]
-    })
+    ...wallActions
 };

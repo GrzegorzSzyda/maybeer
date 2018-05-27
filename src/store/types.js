@@ -1,12 +1,6 @@
 // @flow
 import type { UserState } from './user/userTypes';
-
-type WallItem = {
-    id: string,
-    title: string
-};
-
-export type WallState = WallItem[];
+import type { WallState } from './wall/wallTypes';
 
 export type State = {
     user: UserState,

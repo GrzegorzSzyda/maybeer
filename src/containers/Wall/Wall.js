@@ -1,13 +1,21 @@
 // @flow
 import React from 'react';
-import { connect, type State, type WallState } from '../../store';
+import { connect, type State } from '../../store';
+import type { WallState } from '../../store/wall/wallTypes';
 
 type WallProps = {
     wall: WallState
 };
 
-const WallComponent = (props: WallProps) => (
-    <div>{props.wall.map(item => <h4 key={item.id}>{item.title}</h4>)}</div>
+const WallComponent = ({ wall }: WallProps) => (
+    <div>
+        {wall.entries.map(item => (
+            <div key={item.id}>
+                <h4>{item.title}</h4>
+                <p>{item.description}</p>
+            </div>
+        ))}
+    </div>
 );
 
 export const Wall = connect((state: State) => ({

@@ -1,17 +1,9 @@
 // @flow
-import { userInitialState } from './user/userInitialState';
 import type { State } from './types';
+import { userInitialState } from './user/userInitialState';
+import { wallInitialState } from './wall/wallInitialState';
 
 export const initialState: State = {
     user: userInitialState,
-    wall: [
-        {
-            id: '1',
-            title: 'IPA'
-        },
-        {
-            id: '2',
-            title: 'Double IPA'
-        }
-    ]
+    wall: wallInitialState
 };
