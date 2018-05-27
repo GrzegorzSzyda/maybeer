@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect, actions, type State, userFirebaseActions } from '../../store';
 import { NavigationBar } from '../../components/NavigationBar';
+import { LoginForm } from '../../components/LoginForm';
 import type { UserState } from '../../store/user/userTypes';
 
 type NavigationProps = {
@@ -12,11 +13,10 @@ class NavigationContainer extends React.PureComponent<NavigationProps, {}> {
     render() {
         return (
             <div>
-                {this.props.user.showLogin && (
-                    <button onClick={userFirebaseActions.login}>
-                        Zaloguj przez Facebook
-                    </button>
-                )}
+                <LoginForm
+                    show={this.props.user.showLogin}
+                    onLogin={userFirebaseActions.login}
+                />
                 <NavigationBar
                     isLogged={this.props.user.isLogged}
                     onShowLogin={actions.userShowLogin}

@@ -1,10 +1,12 @@
 // @flow
-export const BUTTON_DEFAULT_STYLES = `
+import { css } from 'styled-components';
+
+export const BUTTON_DEFAULT_STYLES = css`
     background: #f2994a;
     position: absolute;
     left: 0;
     right: 0;
-    top: -11px
+    top: -11px;
     height: 90px;
     width: 90px;
     border-radius: 100%;
@@ -17,7 +19,7 @@ export const BUTTON_DEFAULT_STYLES = `
     cursor: pointer;
 `;
 
-export const ICON_STYLES = `
+export const ICON_STYLES = css`
     color: #fff;
     font-size: 36px;
 `;
