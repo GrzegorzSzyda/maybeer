@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
+import { StarRatings } from '../StarRatings';
 
 type AddBeerFormProps = {
     fields: {
@@ -21,7 +22,10 @@ export const AddBeerForm = ({ fields, onChangeField }: AddBeerFormProps) => (
             placeholder="Nazwa piwa"
             onChange={event => onChangeField('name', event.target.value)}
         />
-        <RateField>Ocena {fields.rate}</RateField>
+        <RateField>
+            Ocena
+            <StarRatings rating={fields.rate} onChange={onChangeField} />
+        </RateField>
         <DiscriptionField
             value={fields.description}
             placeholder="Opis"
