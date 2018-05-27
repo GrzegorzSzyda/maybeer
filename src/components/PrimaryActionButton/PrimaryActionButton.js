@@ -14,7 +14,7 @@ export const PrimaryActionButton = ({
     if (isLogged === null) {
         return <Loading />;
     }
-    if (isLogged) {
+    if (!isLogged) {
         return <Add />;
     }
     return <Login onShowLogin={onShowLogin} />;
