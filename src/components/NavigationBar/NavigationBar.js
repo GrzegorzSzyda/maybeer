@@ -42,11 +42,11 @@ const NavigationWrapper = styled.div`
 
 const NavigationItem = styled(Link)`
     line-height: 63px;
-    text-align: center
+    text-align: center;
     color: #4f4f4f;
     font-size: 36px;
     border-bottom: 5px solid transparent;
-    border-color: #F2994A;
+    border-color: #f2994a;
 `;
 
 const IconWrapperLeft = styled.div`

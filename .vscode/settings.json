@@ -1,7 +1,10 @@
 {
     "cSpell.words": [
         "firestore",
-        "maybeer"
+        "fontawesome",
+        "fortawesome",
+        "maybeer",
+        "stylelint"
     ],
     "javascript.validate.enable": false,
     "[javascript]": {
