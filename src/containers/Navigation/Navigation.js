@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { connect, actions, type State, userFirebaseActions } from '../../store';
+import { connect, actions, type State, asyncActions } from '../../store';
 import { NavigationBar } from '../../components/NavigationBar';
 import { LoginForm } from '../../components/LoginForm';
 import type { UserState } from '../../store/user/userTypes';
@@ -15,7 +15,7 @@ class NavigationContainer extends React.PureComponent<NavigationProps, {}> {
             <div>
                 <LoginForm
                     show={this.props.user.showLogin}
-                    onLogin={userFirebaseActions.login}
+                    onLogin={asyncActions.login}
                 />
                 <NavigationBar
                     isLogged={this.props.user.isLogged}

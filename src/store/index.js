@@ -2,7 +2,8 @@
 import * as createStore from 'react-waterfall';
 import { initialState } from './initialState';
 import { actionsCreators } from './actionsCreators';
-import { watchUserChanges, login, logout } from './firebase';
+import { createAsyncActions } from './asyncActions';
+import { authService } from '../services/auth';
 import type { UserData } from './user/userTypes';
 
 export * from './types';
@@ -12,9 +13,9 @@ export const { Provider, connect, actions } = createStore({
     actionsCreators
 });
 
-export const userFirebaseActions = { login, logout };
+export const { asyncActions } = createAsyncActions(actions);
 
-watchUserChanges((user: UserData) => {
+authService.watchUserChanges((user: UserData) => {
     console.log('watchUserChanges', user); // eslint-disable-line
     actions.userUpdateData(user);
 });
