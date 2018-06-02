@@ -1,32 +1,43 @@
 // @flow
 import React from 'react';
+import styled from 'styled-components';
 import { Icon } from '../Icon';
+import { createArrayOfStarsByRating } from './lib/createArrayOfStarsByRating';
 
 type RatingsProps = {
-    rating: number | null,
+    rating: number,
     maxStars?: number,
-    onChange(name: string, value: string): void
-};
-
-const STAR = 'star';
-const STAR_EMPTY = 'starEmpty';
-
-const createArrayOfStarsByRating = (rating, maxStars = 5) => {
-    const arrayOfStars = [];
-    let ratingInStars = maxStars * rating;
-
-    for (let n = 0; n < maxStars; n += 1) {
-        arrayOfStars.push(ratingInStars >= 1 ? STAR : STAR_EMPTY);
-        ratingInStars -= 1;
-    }
-
-    return arrayOfStars;
+    onChange?: (name: string, value: string | number) => void
 };
 
 export const StarRatings = ({ rating, maxStars = 5, onChange }: RatingsProps) => (
-    <div>
-        {createArrayOfStarsByRating(0.4, maxStars).map(
-            (star, i) => star === STAR && <Icon key={i} name="star" />
-        )}
-    </div>
+    <StarsWrapper>
+        {createArrayOfStarsByRating(rating, maxStars).map((star: boolean, i: number) => (
+            <Star
+                key={i}
+                active={star}
+                editable={!!onChange}
+                onClick={() => {
+                    if (onChange) {
+                        onChange('rating', (i + 1) / maxStars);
+                    }
+                }}
+            >
+                <Icon name="star" />
+            </Star>
+        ))}
+    </StarsWrapper>
 );
+
+const StarsWrapper = styled.div`
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1em;
+`;
+
+const Star = styled.div`
+    color: ${props => (props.active ? '#F2C94C' : '#BDBDBD')};
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+`;

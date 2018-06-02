@@ -5,10 +5,13 @@ import { AddBeerForm as AddBeerFormComponent } from '../../components/AddBeerFor
 type AddBeerFormState = {
     fields: {
         photo: any,
+        photoa: any,
         name: string,
-        rate: number | null,
+        rating: number,
         description: string
-    }
+    },
+    file: any,
+    imagePreviewUrl: any
 };
 
 class AddBeerFormContainer extends React.PureComponent<{}, AddBeerFormState> {
@@ -17,15 +20,18 @@ class AddBeerFormContainer extends React.PureComponent<{}, AddBeerFormState> {
 
         this.state = {
             fields: {
-                photo: [],
+                photo: null,
+                photoa: null,
                 name: '',
-                rate: null,
+                rating: 0,
                 description: ''
-            }
+            },
+            imagePreviewUrl: null,
+            file: null
         };
     }
 
-    onChangeField = (name: string, value: string) => {
+    onChangeField = (name: string, value: string | number | any) => {
         this.setState({
             fields: {
                 ...this.state.fields,
@@ -34,11 +40,26 @@ class AddBeerFormContainer extends React.PureComponent<{}, AddBeerFormState> {
         });
     };
 
+    onChangePhoto = (files: Blob[]) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(files[0]);
+
+        reader.onloadend = () => {
+            this.setState({
+                fields: {
+                    ...this.state.fields,
+                    photo: reader.result
+                }
+            });
+        };
+    };
+
     render() {
         return (
             <AddBeerFormComponent
                 fields={this.state.fields}
                 onChangeField={this.onChangeField}
+                onChangePhoto={this.onChangePhoto}
             />
         );
     }

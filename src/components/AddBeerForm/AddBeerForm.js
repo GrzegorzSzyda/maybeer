@@ -7,25 +7,37 @@ type AddBeerFormProps = {
     fields: {
         photo: any,
         name: string,
-        rate: number | null,
+        rating: number,
         description: string
     },
-    onChangeField(name: string, value: string): void
+    onChangeField(name: string, value: string | number | any): void,
+    onChangePhoto(event: any): void
 };
 
-export const AddBeerForm = ({ fields, onChangeField }: AddBeerFormProps) => (
+export const AddBeerForm = ({
+    fields,
+    onChangeField,
+    onChangePhoto
+}: AddBeerFormProps) => (
     <Container>
-        <PhotoField>Tu bedą zdjęcia</PhotoField>
+        <PhotoField>
+            <img src={fields.photo} alt="" style={{ height: '210px' }} />
+            <input
+                type="file"
+                accept="image/*"
+                name="Photo"
+                onChange={event => onChangePhoto(event.target.files)}
+            />
+        </PhotoField>
         <NameField
             type="text"
             value={fields.name}
             placeholder="Nazwa piwa"
             onChange={event => onChangeField('name', event.target.value)}
         />
-        <RateField>
-            Ocena
-            <StarRatings rating={fields.rate} onChange={onChangeField} />
-        </RateField>
+        <RatingField>
+            <StarRatings rating={fields.rating} onChange={onChangeField} />
+        </RatingField>
         <DiscriptionField
             value={fields.description}
             placeholder="Opis"
@@ -36,7 +48,7 @@ export const AddBeerForm = ({ fields, onChangeField }: AddBeerFormProps) => (
 
 const Container = styled.div`
     display: grid;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 130px);
     grid-template-rows: 210px auto auto 1fr;
     grid-gap: 1em;
     padding: 1em;
@@ -54,10 +66,11 @@ const NameField = styled.input`
     padding: 1em;
 `;
 
-const RateField = styled.div`
+const RatingField = styled.div`
     background: #fff;
     font-size: 1.3em;
     padding: 1em;
+    text-align: center;
 `;
 
 const DiscriptionField = styled.textarea`
