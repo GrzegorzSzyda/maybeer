@@ -4,14 +4,11 @@ import { AddBeerForm as AddBeerFormComponent } from '../../components/AddBeerFor
 
 type AddBeerFormState = {
     fields: {
-        photo: any,
-        photoa: any,
+        photo: string | ArrayBuffer | null,
         name: string,
         rating: number,
         description: string
-    },
-    file: any,
-    imagePreviewUrl: any
+    }
 };
 
 class AddBeerFormContainer extends React.PureComponent<{}, AddBeerFormState> {
@@ -21,13 +18,10 @@ class AddBeerFormContainer extends React.PureComponent<{}, AddBeerFormState> {
         this.state = {
             fields: {
                 photo: null,
-                photoa: null,
                 name: '',
                 rating: 0,
                 description: ''
-            },
-            imagePreviewUrl: null,
-            file: null
+            }
         };
     }
 

@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StarRatings } from '../StarRatings';
+import { AddPhotoField } from '../AddPhotoField';
 
 type AddBeerFormProps = {
     fields: {
@@ -20,15 +21,7 @@ export const AddBeerForm = ({
     onChangePhoto
 }: AddBeerFormProps) => (
     <Container>
-        <PhotoField>
-            <img src={fields.photo} alt="" style={{ height: '210px' }} />
-            <input
-                type="file"
-                accept="image/*"
-                name="Photo"
-                onChange={event => onChangePhoto(event.target.files)}
-            />
-        </PhotoField>
+        <AddPhotoField photo={fields.photo} onChangePhoto={onChangePhoto} />
         <NameField
             type="text"
             value={fields.name}
@@ -52,11 +45,6 @@ const Container = styled.div`
     grid-template-rows: 210px auto auto 1fr;
     grid-gap: 1em;
     padding: 1em;
-`;
-
-const PhotoField = styled.div`
-    background: rgba(255, 255, 255, 0.1);
-    font-size: 1.3em;
 `;
 
 const NameField = styled.input`
